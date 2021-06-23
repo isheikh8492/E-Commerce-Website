@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Item
-from django.views.generic import ListView, View
+from django.views.generic import ListView, TemplateView
 
 # Create your views here.
 
@@ -17,7 +17,5 @@ class HomeView(ListView):
     template_name = "home.html"
 
 
-class CheckoutView(View):
-    def get(self, *args, **kwargs):
-        context = {}
-        return render(self.request, "checkout-page.html", context)
+class CheckoutView(TemplateView):
+    template_name = "checkout.html"
