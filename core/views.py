@@ -19,3 +19,7 @@ class HomeView(ListView):
 
 class CheckoutView(TemplateView):
     template_name = "checkout.html"
+
+
+class ProductView(TemplateView):
+    template_name = "product.html"
