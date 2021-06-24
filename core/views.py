@@ -1,6 +1,6 @@
+from django.http import request
 from django.shortcuts import render
 from .models import Item
-from django.views.generic import ListView, TemplateView
 
 # Create your views here.
 
@@ -12,14 +12,19 @@ from django.views.generic import ListView, TemplateView
 #     return render(request, "home-page.html", context)
 
 
-class HomeView(ListView):
-    model = Item
-    template_name = "home.html"
+def home(request):
+    context = {
+        'items': Item.objects.all()
+    }
+    return render(request, "home.html", context)
 
 
-class CheckoutView(TemplateView):
-    template_name = "checkout.html"
+def checkout(request):
+    return render(request, "checkout.html")
 
 
-class ProductView(TemplateView):
-    template_name = "product.html"
+def products(request):
+    context = {
+        'items': Item.objects.all()
+    }
+    return render(request, "product.html", context)
